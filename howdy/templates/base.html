@@ -1,0 +1,264 @@
+{% load staticfiles %}
+
+<html lang="zh">
+
+<head>
+  <!-- Title -->
+  <title>
+    {% block headTitle %}
+
+    {% endblock %}
+  </title>
+
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="google-site-verification" content="gt_KpCfxhvnWYmpu8mnzc1EfkPqXL8ptF-75YV9vJ_U" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- CSS Global Compulsory -->
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+  <!-- CSS Customization -->
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <!-- CSS Global Icons -->
+
+  <link rel="stylesheet" href="{% static 'vendor/icon-awesome/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/icon-line/css/simple-line-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/icon-etlinefont/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/icon-line-pro/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/icon-hs/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/dzsparallaxer/dzsparallaxer.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/dzsparallaxer/dzsscroller/scroller.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/dzsparallaxer/advancedscroller/plugin.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/fancybox/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/typedjs/typed.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/hs-megamenu/src/hs.megamenu.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/hamburgers/hamburgers.min.css' %}">
+
+  <!-- CSS Unify -->
+  <link rel="stylesheet" href="{% static 'css/unify-core.css' %}">
+  <link rel="stylesheet" href="{% static 'css/unify-components.css' %}">
+  <link rel="stylesheet" href="{% static 'css/unify-globals.css' %}">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118342853-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118342853-1');
+</script>
+
+</head>
+
+<body>
+  <main>
+
+    <!-- Header -->
+
+    <header id="js-header" class="u-header u-header--static">
+      <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
+        <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
+          <div class="container">
+            <!-- Responsive Toggle Button -->
+            <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-3 g-right-0" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+              <span class="hamburger hamburger--slider">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+              </span>
+              </span>
+            </button>
+            <!-- End Responsive Toggle Button -->
+
+            <section class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll loaded dzsprx-readyall"
+              data-options='{direction: "reverse", settings_mode_oneelement_max_offset: "150"}'>
+              <div class="divimage dzsparallaxer--target w-100 g-bg-pos-bottom-center"
+                style="height: 65%; background-image: url({% static 'images/CNtower.jpg' %});"></div>
+            </section>
+
+            <!-- Logo -->
+            <a href="/" class="navbar-brand">
+              <img src="{% static 'images/logo_resize_new4.png' %}" alt="方熊地产" height="60px">
+            </a>
+            <!-- End Logo -->
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
+              <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
+
+                <!-- Home -->
+
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/" class="h5 nav-link g-py-7 g-px-0">首页</a>
+                </li>
+
+                <!-- End Home -->
+
+                <!--
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="qun-manage" class="nav-link g-py-7 g-px-0">微信群运营</a>
+                </li>
+
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/rank" class="nav-link g-py-7 g-px-0">微信群排行</a>
+                </li>
+                                -->
+
+
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/articlelist" class="h5 nav-link g-py-7 g-px-0">房源</a>
+                </li>
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="http://127.0.0.1:8000/%E6%9C%80%E6%96%B0%E6%88%BF%E6%BA%90-2/" class="h5 nav-link g-py-7 g-px-0">大多房市新闻</a>
+                </li>
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/mortgage_calculator/" class="h5 nav-link g-py-7 g-px-0">计算工具</a>
+                </li>
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/rentingrooms" class="h5 nav-link g-py-7 g-px-0">物业管理</a>
+                </li>
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/signup" class="h5 nav-link g-py-7 g-px-0">注册</a>
+                </li>
+                <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                  <a href="/login" class="h5 nav-link g-py-7 g-px-0">登录</a>
+                </li>
+
+              </ul>
+            </div>
+            <!-- End Navigation -->
+
+
+          </div>
+        </nav>
+      </div>
+
+    </header>
+    <!-- End Header -->
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Copyright Footer -->
+    <footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 text-center text-md-left g-mb-10 g-mb-0--md">
+            <div class="d-lg-flex">
+              <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2018 &copy; All Rights Reserved.</small>
+              <ul class="u-list-inline">
+                <li class="list-inline-item">
+
+                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="/privacy">隐私政策</a>
+                </li>
+                <li class="list-inline-item">
+                  <span>|</span>
+                </li>
+                <li class="list-inline-item">
+                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="/tos">用户条约</a>
+                </li>
+                <li class="list-inline-item">
+                  <span>|</span>
+                </li>
+                <li class="list-inline-item">
+                  <a class="g-color-white-opacity-0_8 g-color-white--hover" href="/">联系我们</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4 align-self-center">
+            <ul class="list-inline text-center text-md-right mb-0">
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Skype">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-skype"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Linkedin">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Pinterest">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-pinterest"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Dribbble">
+                <a href="#!" class="g-color-white-opacity-0_5 g-color-white--hover">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Copyright Footer -->
+    <a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{
+     "bottom": 15,
+     "right": 15
+   }' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+      <i class="hs-icon hs-icon-arrow-top"></i>
+    </a>
+  </main>
+
+  <div class="u-outer-spaces-helper"></div>
+
+
+  <!-- JS Global Compulsory -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>-->
+  <script src="{% static 'vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'vendor/popper.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+
+  <!-- JS Implementing Plugins -->
+  <script src="{% static 'vendor/hs-megamenu/src/hs.megamenu.js' %}"></script>
+  <script src="{% static 'vendor/dzsparallaxer/dzsparallaxer.js' %}"></script>
+  <script src="{% static 'vendor/dzsparallaxer/dzsscroller/scroller.js' %}"></script>
+  <script src="{% static 'vendor/dzsparallaxer/advancedscroller/plugin.js' %}"></script>
+  <script src="{% static 'vendor/fancybox/jquery.fancybox.min.js' %}"></script>
+  <script src="{% static 'vendor/slick-carousel/slick/slick.js' %}"></script>
+  <script src="{% static 'vendor/typedjs/typed.min.js' %}"></script>
+
+  <!-- JS Unify -->
+  <script src="{% static 'js/hs.core.js' %}"></script>
+  <script src="{% static 'js/components/hs.header.js' %}"></script>
+  <script src="{% static 'js/helpers/hs.hamburgers.js' %}"></script>
+  <script src="{% static 'js/components/hs.tabs.js' %}"></script>
+
+  <script src="{% static 'js/components/hs.carousel.js' %}"></script>
+  <script src="{% static 'js/components/text-animation/hs.text-slideshow.js' %}"></script>
+  <script src="{% static 'js/components/hs.go-to.js' %}"></script>
+
+  <!-- JS Customization -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+{% block footerScript %}
+
+{% endblock %}
+
+
+</body>
+
+</html>

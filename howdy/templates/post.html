@@ -1,0 +1,14 @@
+<!--<!DOCTYPE html>-->
+{% extends 'base.html' %}
+{% load markdown_deux_tags %}
+{% block title %} {{ post.title }} 文章列表 {% endblock %}
+{% block headmessage %}
+<h3 style='font-family:微软雅黑;'>{{ post.title }}</h3>
+<a style="font-family:微软雅黑; font-size:10pt" href="/">Return Homepage</a>
+{% endblock %}
+
+{% block content %}
+		<p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;letter-spacing: 2pt;'>
+			{{post.body | markdown}}</a>
+		</p>
+{% endblock %}

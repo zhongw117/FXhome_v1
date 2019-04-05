@@ -1,0 +1,312 @@
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+  <!-- Title -->
+  <title>client portal</title>
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+  <!-- CSS Global Compulsory -->
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+
+
+  <!-- CSS Global Icons -->
+  <link rel="stylesheet" href="{% static 'vendor/icon-awesome/css/font-awesome.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/icon-hs/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/hs-admin-icons/hs-admin-icons.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'vendor/flatpickr/dist/css/flatpickr.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.css">
+
+  <link rel="stylesheet" href="{% static 'vendor/chartist-js/chartist.min.css' %}">
+
+
+  <link rel="stylesheet" href="{% static 'vendor/hamburgers/hamburgers.min.css' %}">
+
+  <!-- CSS Unify -->
+  <link rel="stylesheet" href="{% static 'vendor/css/unify-admin.css' %}">
+
+  <!-- CSS Customization -->
+  <link rel="stylesheet" href="{% static 'vendor/css/custom.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.4.0/css/intlTelInput.css">
+
+
+</head>
+
+<body>
+
+
+  <!-- Header -->
+  <header id="js-header" class="u-header u-header--sticky-top">
+    <div class="u-header__section u-header__section--admin-light u-shadow-v22 g-min-height-65">
+          <a href="/" class="navbar-brand d-flex align-self-center g-line-height-1 py-0 g-mt-5">
+            <img src="{% static 'images/logo_sc.png' %}" alt="群大师" height="50px">
+          </a>
+    </div>
+  </header>
+  <!-- End Header -->
+
+
+  <main class="container-fluid px-0 g-pt-25">
+    <!-- Login -->
+
+<section class="g-min-height-100vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+      <div class="container g-py-50">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-9 col-lg-6">
+            <div class="u-shadow-v24 g-bg-white rounded g-py-40 g-px-30">
+<!--
+    <div class="alert alert-success" role="alert">
+      暂停自动注册，请联系我们注册新账号， 微信:  hui503677194
+    </div>
+-->
+              <header class="text-center mb-4">
+                <h2 class="h2 g-color-black g-font-weight-600">免费注册</h2>
+              </header>
+
+              <!-- Form -->
+              <form class="g-py-15" onsubmit="javascript:return false;">
+
+
+
+                <div class="mb-4">
+                  <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">手机号码:</label>
+                    <input name="phone" type="tel" id="phone" class="form-control">
+                    <button type="submit" class="btn btn-sm u-btn-cyan rounded-0" id="smsVerify">获取短信验证码</button>
+                    <span id="phoneVerifyError" class="form-text text-muted alert alert-danger" role="alert" style="display: none"></span>
+                </div>
+                <div class="mb-4">
+
+                    <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">短信验证码:</label>
+                    <input id="verifyCode" name="verifyCode" class="form-control" type="text" placeholder="SMS Verification code">
+
+                </div>
+                <div class="mb-4">
+
+                    <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">设置密码:</label>
+                    <input id="password" name="password" class="form-control" type="password" placeholder="Password">
+
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                    <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">名字:</label>
+                    <input id="firstName" name="firstName" class="form-control" type="text" placeholder="First name">
+                    </div>
+                    <div class="col-6">
+                    <label class="g-color-gray-dark-v2 g-font-weight-600 g-font-size-13">姓氏:</label>
+                    <input id="lastName" name="lastName" class="form-control" type="text" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="mb-4">
+
+                </div>
+
+                <div id="submitError" class="alert alert-danger col-md-12" role="alert" style="display: none;">
+
+                </div>
+                <div class="row justify-content-between mb-5">
+                  <div class="col-8 align-self-center">
+                    <label class="form-check-inline u-check g-color-gray-dark-v5 g-font-size-13 g-pl-25">
+                      <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" name="tos" id="tos" checked>
+                      <div class="u-check-icon-checkbox-v6 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                      </div>
+                      I accept the <a href="/">Terms and Conditions</a>
+                    </label>
+                  </div>
+                  <div class="col-4 align-self-center text-right">
+                    <button id="saveData" class="btn btn-md u-btn-primary rounded g-py-13 g-px-25" type="button">注册</button>
+                  </div>
+
+                </div>
+
+              </form>
+              <!-- End Form -->
+
+
+              <footer class="text-center">
+                <p class="g-color-gray-dark-v5 g-font-size-13 mb-0">已有帐号 <a class="g-font-weight-600" href="/support/login/">直接登录</a>
+                </p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- End Login -->
+  </main>
+
+
+  <!-- JS Global Compulsory -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.4.0/js/intlTelInput.min.js"></script>
+
+  <script src="{% static 'vendor/popper.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'vendor/cookiejs/jquery.cookie.js' %}"></script>
+
+
+
+  <!-- JS Plugins Init. -->
+  <script src="{% static 'vendor/appear.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+
+
+  <!-- JS Unify -->
+  <script src="{% static 'js/hs.core.js' %}"></script>
+  <script src="{% static 'js/helpers/hs.hamburgers.js' %}"></script>
+
+
+  <!-- JS Custom -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+
+
+
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of custom select
+      $('.js-select').selectpicker();
+      // initialization of hamburger
+      $.HSCore.helpers.HSHamburgers.init('.hamburger');
+        $("#phone").intlTelInput({
+          initialCountry: "auto",
+          geoIpLookup: function(callback) {
+            $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+              var countryCode = (resp && resp.country) ? resp.country : "";
+              callback(countryCode);
+            });
+          },
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.4.0/js/utils.js"
+        }).done(function() {
+        });
+          $("#saveData").click(function(e) {
+              e.preventDefault();
+              $('#submitError').hide();
+              $('#phoneVerifyError').hide();
+              var number = $("#phone").intlTelInput("getNumber");
+              var numberType = $("#phone").intlTelInput("getNumberType");
+              var countryCode = $("#phone").intlTelInput("getSelectedCountryData")['dialCode'];
+              var error = $("#phone").intlTelInput("getValidationError");
+              var phone = $("#phone").val();
+              var verifyCode = $("#verifyCode").val();
+              var password = $("#password").val();
+              var firstName = $("#firstName").val();
+              var lastName = $("#lastName").val();
+              if (error > 0 || numberType < 0 || numberType > 2) {
+                  $("#phoneVerifyError").html("请输入正确的手机号");
+                  $('#phoneVerifyError').show("slow");
+                  return;
+              }
+              if (password == "") {
+                  $("#submitError").html("请输入密码");
+                  $('#submitError').show("slow");
+                  return;
+              }
+              if (lastName == "" || firstName=="") {
+                  $("#submitError").html("请输入姓名");
+                  $('#submitError').show("slow");
+                  return;
+              }
+              if (verifyCode == "") {
+                  $("#submitError").html("请输入短信验证码");
+                  $('#submitError').show("slow");
+                  return;
+              }
+              if (!$("#tos").is(':checked')){
+                  $("#submitError").html("请接受用户条款");
+                  $('#submitError').show("slow");
+                  return;
+              }
+              $(this).attr('disabled', 'disabled');
+              $clickObj = $(this)
+              var data = {"password":password, "verifyCode":verifyCode, "lastName":lastName, "firstName":firstName,
+                  "phoneCountry":countryCode, "phonefull":number, "phone":phone,  csrfmiddlewaretoken: '{{ csrf_token }}',
+              };
+              $.ajax({
+                  type: "POST",
+                  traditional: true,
+                  url: "/client/signup/createAccount/",
+                  data: data,
+                  success: function(data){
+                    if (data.success){
+                        $("#submitError" ).html("注册成功，<a href='/client/login/'>请登录</a>你的账号");
+                        $('#submitError').show("slow");
+                    }else{
+                        $("#submitError" ).html("请稍后重试， 错误信息："+data.result);
+                        $('#submitError').show("slow");
+                        $clickObj.removeAttr('disabled');
+                    }
+                  },
+                  error: function (request, status, error) {
+                    $( "#submitError" ).html("系统问题，请稍后重试！");
+                    $('#submitError').show("slow");
+                  },
+              });
+          });
+          $("#smsVerify").click(function(e){
+              e.preventDefault();
+             $('#phoneVerifyError').hide();
+              var number = $("#phone").intlTelInput("getNumber");
+              var numberType = $("#phone").intlTelInput("getNumberType");
+              var countryCode = $("#phone").intlTelInput("getSelectedCountryData")['dialCode'];
+              var error = $("#phone").intlTelInput("getValidationError");
+              var phone = $("#phone").val();
+              console.log(number);
+              console.log(countryCode);
+              console.log(error)
+              if (error > 0 || numberType < 0 || numberType > 2){
+                   $( "#phoneVerifyError" ).html("请输入正确的手机号");
+                   $('#phoneVerifyError').show("slow");
+                   console.log("invalid phone number");
+                  return;
+              }
+              $(this).attr('disabled', 'disabled');
+              $clickObj = $(this)
+             var data = {"phoneCountry":countryCode, "phonefull":number, "phone":phone,  csrfmiddlewaretoken: '{{ csrf_token }}' };
+              $.ajax({
+                  type: "POST",
+                  traditional: true,
+                  url: "/client/signup/sendSmsVerify/",
+                  data: data,
+                  success: function(data){
+                    if (data.success){
+                        $("#phoneVerifyError" ).html("验证码已经发出，请查看手机");
+                        $('#phoneVerifyError').show("slow");
+                    }else{
+                        $("#phoneVerifyError" ).html("请稍后重试， 错误信息："+data.result);
+                        $('#phoneVerifyError').show("slow");
+                        $clickObj.removeAttr('disabled');
+                    }
+                  },
+                  error: function (request, status, error) {
+                    $( "#phoneVerifyError" ).html("系统问题，请稍后重试！");
+                    $('#phoneVerifyError').show("slow");
+                  },
+              });
+          });
+          $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+    });
+  </script>
+</body>
+
+</html>

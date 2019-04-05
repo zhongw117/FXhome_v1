@@ -1,0 +1,17 @@
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import *
+
+class SignupForm(UserCreationForm):
+    email = forms.EmailField(max_length=200, help_text='Required')
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+class HotelForm(forms.ModelForm):
+    # image = forms.ImageField(label='select a file')
+
+    class Meta:
+        model = Hotel
+        fields = ['hotelname','hotel_Main_Img']
