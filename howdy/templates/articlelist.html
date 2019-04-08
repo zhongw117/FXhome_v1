@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load wagtailcore_tags wagtailimages_tags %}
 {% load static %}
 {% block content %}
   <link rel="stylesheet" href="{% static 'vendor/hs-admin-icons/hs-admin-icons.css' %}">
@@ -13,10 +13,27 @@
       <div class="container pull-right">
         <form class="col-sm g-py-5 g-ml-15--sm g-ml-20--md g-mr-10--sm u-dropdown--css-animation" aria-labelledby="searchInvoker" action="#!" style="animation-duration: 300ms;">
             <div class="input-group g-max-width-450">
-              <input class="form-control form-control-md g-rounded-4" type="text" placeholder="搜索出租房源">
-              <button type="submit" class="btn u-btn-outline-primary g-brd-none g-bg-transparent--hover g-pos-abs g-top-0 g-right-0 d-flex
-              g-width-40 h-100 align-items-center justify-content-center g-font-size-18 g-z-index-2"><i class="hs-admin-search"></i>
-              </button>
+              <form action="{% url 'search' %}" method="get">
+                    <input type="text" name="query" value="{{ search_query }}">
+                    <input type="submit" value="Search">
+                </form>
+
+                {% if search_results %}
+                    <ul>
+                        {% for result in search_results %}
+                            <li>
+                                <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+                                {% if result.search_description %}
+                                    {{ result.search_description|safe }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% elif search_query %}
+                    No results found
+                {% else %}
+                    Please type something into the search box
+                {% endif %}
             </div>
         </form>
 

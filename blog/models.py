@@ -4,7 +4,7 @@ from django import forms
 # Create your models here.
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
-from wagtail.search import index
+
 
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.core.models import Page, Orderable
@@ -15,8 +15,9 @@ from taggit.models import TaggedItemBase
 
 from wagtail.snippets.models import register_snippet
 
-
-
+# for search index
+from wagtail.search import index
+from django.utils import timezone
 
 
 class BlogIndexPage(Page):
@@ -113,3 +114,35 @@ class BlogCategory(models.Model):
 
     class Meta:
         verbose_name_plural = 'blog categories'
+
+class Author(models.Model):
+    author_first_name = models.CharField(max_length=30)
+    author_last_name = models.CharField(max_length=30)
+    author_email = models.EmailField()
+
+    def __str__(self):
+        return "%s %s" % (self.author_first_name, self.author_last_name)
+
+class Book(index.Indexed, models.Model):
+    GENRE_CHOICES = (
+        ('R', 'Rock'),
+        ('J/B', 'Jazz/Blues'),
+        ('B', 'Blues'),
+        ('J', 'Jazz'),
+        ('P', 'Pop'),
+        ('H', 'Hip-Hop'),
+    )
+    title = models.CharField(max_length=255)
+    genre = models.CharField(max_length=255, choices=GENRE_CHOICES)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    published_date = models.DateTimeField()
+
+    search_fields = [
+        index.SearchField('title', partial_match=True, boost=10),
+        index.SearchField('get_genre_display'),
+
+        index.FilterField('genre'),
+        index.FilterField('author'),
+        index.FilterField('published_date'),
+    ]
+

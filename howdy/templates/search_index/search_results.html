@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-blogpage{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main class="container-fluid px-0">
+
+<section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+      <div class="container-fluid g-py-30">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-9 col-lg-6">
+            <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
+              <header class="text-center mb-4">
+                <h2 class="h2 g-color-black g-font-weight-600">房源搜索</h2>
+              </header>
+                 <form action="{% url 'search' %}" method="get">
+                    <input type="text" name="query" value="{{ search_query }}">
+                    <input type="submit" value="Search">
+                </form>
+
+                {% if search_results %}
+                    <ul>
+                        {% for result in search_results %}
+                            <li>
+                                <h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+                                {% if result.search_description %}
+                                    {{ result.search_description|safe }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% elif search_query %}
+                    No results found
+                {% else %}
+                    Please type something into the search box
+                {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+ </main>
+
+{% endblock content %}

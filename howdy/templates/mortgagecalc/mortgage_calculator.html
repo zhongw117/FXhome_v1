@@ -2,70 +2,102 @@
 
 {% load static %}
 {% block content %}
-  <link rel="stylesheet" href="{% static 'vendor/hs-admin-icons/hs-admin-icons.css' %}">
-  <link rel="stylesheet" href="{% static 'vendor/bootstrap-select/css/bootstrap-select.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/unify-admin.css' %}">
-    <section class="g-py-10">
-      <div class="container">
-        <head>
-            <meta charset="UTF-8">
-            <title>This is default mortgage calculator interface</title>
-        </head>
-        <body>
-            <form name="loandata">
-              <table>
-                <tr><td colspan="3"><b>Enter Loan Information:</b></td></tr>
-                <tr>
-                  <td>1)</td>
-                  <td>Amount of the loan (any currency):</td>
-                  <td><input type="text" name="principal" size="12"
-                             onchange="calculate();"></td>
-                </tr>
-                <tr>
-                  <td>2)</td>
-                  <td>Annual percentage rate of interest:</td>
-                  <td><input type="text" name="interest" size="12"
-                             onchange="calculate();"></td>
-                </tr>
-                <tr>
-                  <td>3)</td>
-                  <td>Repayment period in years:</td>
-                  <td><input type="text" name="years" size="12"
-                             onchange="calculate();"></td>
-                </tr>
-                <tr><td colspan="3">
-                  <input type="button" value="Compute" onclick="calculate();">
-                </td></tr>
-                <tr><td colspan="3">
-                  <b>Payment Information:</b>
-                </td></tr>
-                <tr>
-                  <td>4)</td>
-                  <td>Your monthly payment will be:</td>
-                  <td><input type="text" name="payment" size="12"></td>
-                </tr>
-                <tr>
-                  <td>5)</td>
-                  <td>Your total payment will be:</td>
-                  <td><input type="text" name="total" size="12"></td>
-                </tr>
-                <tr>
-                  <td>6)</td>
-                  <td>Your total interest payments will be:</td>
-                  <td><input type="text" name="totalinterest" size="12"></td>
-                </tr>
-              </table>
-            </form>
-        </body>
-      </div>
-  </section>
 
-    <!--
-      This is the JavaScript program that makes the example work. Note that
-      this script defines the calculate() function called by the event
-      handlers in the form. The function refers to values in the form
-      fields using the names defined in the HTML code above.
-    -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+<main class="container-fluid px-0 g-pt-25">
+    <section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+      <div class="container g-py-50">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-9 col-lg-6">
+            <div class="u-shadow-v24 g-bg-white rounded g-py-40 g-px-30">
+
+              <header class="text-center mb-4">
+                <h2 class="h2 g-color-black g-font-weight-600">Mortgage计算</h2>
+              </header>
+              <!-- Form -->
+
+              <div align="center">
+              <body>
+                <form name="loandata">
+                  <table>
+                    <tr><td colspan="3"><b>Enter Loan Information:</b></td></tr>
+                    <tr>
+                      <td>1)</td>
+                      <td>Amount of the loan (any currency):</td>
+                      <td><input type="text" name="principal" size="12"
+                                 onchange="calculate();"></td>
+                    </tr>
+                    <tr>
+                      <td>2)</td>
+                      <td>Annual percentage rate of interest %:</td>
+                      <td><input type="text" name="interest" size="12"
+                                 onchange="calculate();"></td>
+                    </tr>
+                    <tr>
+                      <td>3)</td>
+                      <td>Repayment period in years:</td>
+                      <td><input type="text" name="years" size="12"
+                                 onchange="calculate();"></td>
+                    </tr>
+                    <tr>
+                      <td align="center" colspan="3">
+                      <input class="btn u-btn-blue" type="button" value="Compute" onclick="calculate();">
+                      </td>
+                    </tr>
+                    <tr><td colspan="3">
+                      <b>Payment Information:</b>
+                    </td></tr>
+                    <tr>
+                      <td>4)</td>
+                      <td>Your monthly payment will be:</td>
+                      <td><input type="text" name="payment" size="12"></td>
+                    </tr>
+                    <tr>
+                      <td>5)</td>
+                      <td>Your total payment will be:</td>
+                      <td><input type="text" name="total" size="12"></td>
+                    </tr>
+                    <tr>
+                      <td>6)</td>
+                      <td>Your total interest payments will be:</td>
+                      <td><input type="text" name="totalinterest" size="12"></td>
+                    </tr>
+                  </table>
+                </form>
+              </body>
+              </div>
+
+              <!-- End Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
+
+
+
+  <script src="{% static 'vendor/cookiejs/jquery.cookie.js' %}"></script>
+
+
+  <!-- JS Plugins Init. -->
+  <script src="{% static 'vendor/appear.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+  <script src="{% static 'vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+  <script src="{% static 'vendor/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+  <script src="{% static 'vendor/datatables/media/js/dataTables.select.js' %}"></script>
+
+  <!-- JS Unify -->
+  <script src="{% static 'js/hs.core.js' %}"></script>
+  <script src="{% static 'js/helpers/hs.hamburgers.js' %}"></script>
+  <script src="{% static 'js/components/hs.dropdown.js' %}"></script>
+
+  <script src="{% static 'js/helpers/hs.focus-state.js' %}"></script>
+  <script src="{% static 'js/components/hs.datatables.js' %}"></script>
+  <script src="{% static 'js/components/hs.popup.js' %}"></script>
+
+
     <script language="JavaScript">
     function calculate() {
         // Get the user's input from the form. Assume it is all valid.
@@ -75,16 +107,13 @@
         var principal = document.loandata.principal.value;
         var interest = document.loandata.interest.value / 100 / 12;
         var payments = document.loandata.years.value * 12;
-
         // Now compute the monthly payment figure, using esoteric math.
         var x = Math.pow(1 + interest, payments);
         var monthly = (principal*x*interest)/(x-1);
-
         // Check that the result is a finite number. If so, display the results.
         if (!isNaN(monthly) &&
             (monthly != Number.POSITIVE_INFINITY) &&
             (monthly != Number.NEGATIVE_INFINITY)) {
-
             document.loandata.payment.value = round(monthly);
             document.loandata.total.value = round(monthly * payments);
             document.loandata.totalinterest.value =
@@ -98,7 +127,6 @@
             document.loandata.totalinterest.value = "";
         }
     }
-
     // This simple method rounds a number to two decimal places.
     function round(x) {
       return Math.round(x*100)/100;

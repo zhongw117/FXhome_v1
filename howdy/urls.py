@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^mortgage_calculator', views.mortgage_calculator, name='mortgage_calculator'),
     url(r'^test', views.test, name='test'),
     url(r'^about', views.about, name='about'),
-    url(r'^articlelist/', rl.get_article, name='get_article'),
+    url(r'^articlelist', rl.get_article, name='get_article'),
+    url(r'^search_results', views.search, name='search')
     ]
 
 if settings.DEBUG:

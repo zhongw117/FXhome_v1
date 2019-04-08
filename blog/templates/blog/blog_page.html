@@ -4,44 +4,66 @@
 
 {% block body_class %}template-blogpage{% endblock %}
 
+{% load static %}
+
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
+<main class="container-fluid px-0">
+    <!-- Login -->
 
-    <div class="intro">{{ page.intro }}</div>
+<section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+      <div class="container-fluid g-py-30">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-9 col-lg-6">
+            <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
+              <header class="text-center mb-4">
+                <h2 class="h2 g-color-black g-font-weight-600">每日要闻</h2>
+              </header>
+                <h1>{{ page.title }}</h1>
+                <p class="meta">{{ page.date }}</p>
 
-    {{ page.body|richtext }}
+                <div class="intro">{{ page.intro }}</div>
 
-    {% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
-        </div>
-    {% endfor %}
+                {{ page.body|richtext }}
 
-    {% if page.tags.all.count %}
-        <div class="tags">
-            <h3>Tags</h3>
-            {% for tag in page.tags.all %}
-                <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
-            {% endfor %}
-        </div>
-    {% endif %}
-
-    {% with categories=page.categories.all %}
-        {% if categories %}
-            <h3>Posted in:</h3>
-            <ul>
-                {% for category in categories %}
-                    <li style="display: inline">
-                        {% image category.icon fill-32x32 style="vertical-align: middle" %}
-                        {{ category.name }}
-                    </li>
+                {% for item in page.gallery_images.all %}
+                    <div style="float: left; margin: 10px">
+                        {% image item.image fill-320x240 %}
+                        <p>{{ item.caption }}</p>
+                    </div>
                 {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
 
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+                {% if page.tags.all.count %}
+                    <div class="tags">
+                        <h3>Tags</h3>
+                        {% for tag in page.tags.all %}
+                            <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
 
-{% endblock %}
+                {% with categories=page.categories.all %}
+                    {% if categories %}
+                        <h3>Posted in:</h3>
+                        <ul>
+                            {% for category in categories %}
+                                <li style="display: inline">
+                                    {% image category.icon fill-32x32 style="vertical-align: middle" %}
+                                    {{ category.name }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+
+                <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+<!-- End Login -->
+ </main>
+
+{% endblock content %}
