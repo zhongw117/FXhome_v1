@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3a5570f-6cf2-4f78-a018-1e3d7aafe90d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/FXhome_v1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/howdy/templates/search_index/search_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_index_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/blog_index_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/blog_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helloapp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/helloapp/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howdy/templates/articlelist.html" beforeDir="false" afterPath="$PROJECT_DIR$/howdy/templates/articlelist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howdy/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/howdy/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howdy/templates/mortgagecalc/mortgage_calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/howdy/templates/mortgagecalc/mortgage_calculator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howdy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/howdy/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howdy/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/howdy/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-    </list>
+    <list default="true" id="e3a5570f-6cf2-4f78-a018-1e3d7aafe90d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,13 +159,6 @@
               <item name="howdy" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FXhome_v1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FXhome_v1" type="462c0819:PsiDirectoryNode" />
-              <item name="howdy" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="search_index" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -222,16 +199,15 @@
       <updated>1554503458129</updated>
       <workItem from="1554503460078" duration="2970000" />
       <workItem from="1554607743143" duration="2668000" />
-      <workItem from="1554671156688" duration="5033000" />
+      <workItem from="1554671156688" duration="5210000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10671000" />
+    <option name="totallyTimeSpent" value="10848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.255119" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

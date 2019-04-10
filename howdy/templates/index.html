@@ -2,7 +2,7 @@
 
 {% load static %}
 
-
+{% load wagtailcore_tags wagtailimages_tags %}
 {% block headTitle %}
 加拿大多伦多方熊地产
 {% endblock %}
@@ -25,15 +25,40 @@
 
           <div class="col-md-6">
             <h3 class="g-color-black g-font-weight-300 g-font-size-40 g-line-height-1_2 mb-4">
-              方熊地产
+              Aaron's Team
               </h3>
             <span class="d-block g-color-black-opacity-0_8 g-font-size-16 mb-5"> 加拿大顶尖1%团队 <br>
             Top 10 Realtor Team in Toronto</span>
           </div>
 
-          <div class="col-md-6 text-right">
-              <img src="{% static 'images/CNtower.jpg' %}" alt="方熊地产" height="150px">
-
+          <!-- <div class="col-md-6 text-right"> -->
+              <!-- <img src="{% static 'images/logo_resize_new4.png' %}" alt="方熊地产" height="150px"> -->
+              <div class="row justify-content-center">
+                <div class="col-sm-10 col-md-9 col-lg-12">
+                  <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
+                  <form action="{% url 'search' %}" method="get">
+          					<input type="text" name="query" value="{{ search_query }}">
+          					<input type="submit" value="Search">
+          				</form>
+          				{% if search_results %}
+          					<ul>
+          						{% for result in search_results %}
+          							<li>
+          								<h4><a href="{% pageurl result %}">{{ result }}</a></h4>
+          								{% if result.search_description %}
+          								    {{ result.search_description|safe }}
+          								{% endif %}
+          							</li>
+          						{% endfor %}
+          					</ul>
+          				{% elif search_query %}
+          					No results found
+          				{% else %}
+          					Please type something into the search box
+          				{% endif %}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47,7 +72,7 @@
           <div class="col-lg-4 g-px-40 g-mb-50 g-mb-0--lg">
             <!-- Icon Blocks -->
             <div class="text-center">
-                <a href="http://console.masterqun.com/client/indexYp/">
+                <a href="/rentingrooms">
               <span class="d-inline-block u-icon-v3 u-icon-size--xl g-bg-blue g-color-white rounded-circle g-mb-30">
                   <i class="icon-finance-086 u-line-icon-pro"></i>
               </span></a>
@@ -67,7 +92,7 @@
                   <i class="icon-finance-196 u-line-icon-pro"></i>
                 </span></a>
               <h3 class="h5 g-color-gray-dark-v2 g-font-weight-600 text-uppercase mb-3">大多房价走势</h3>
-              <p class="mb-0">2018到2019年</p>
+              <p class="mb-0">2015到2019年</p>
             </div>
             <!-- End Icon Blocks -->
           </div>
@@ -189,16 +214,12 @@
     $(document).on('ready', function () {
         // initialization of carousel
         $.HSCore.components.HSCarousel.init('.js-carousel');
-
         // initialization of tabs
         $.HSCore.components.HSTabs.init('[role="tablist"]');
-
         // initialization of popups
         $.HSCore.components.HSPopup.init('.js-fancybox');
-
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
-
         // initialization of text animation (typing)
         $(".u-text-animation.u-text-animation--typing").typed({
           strings: [
@@ -211,12 +232,10 @@
           backDelay: 1500
         });
       });
-
       $(window).on('load', function () {
         // initialization of header
         $.HSCore.components.HSHeader.init($('#js-header'));
         $.HSCore.helpers.HSHamburgers.init('.hamburger');
-
         // initialization of HSMegaMenu component
         $('.js-mega-menu').HSMegaMenu({
           event: 'hover',
@@ -224,7 +243,6 @@
           breakpoint: 991
         });
       });
-
       $(window).on('resize', function () {
         setTimeout(function () {
           $.HSCore.components.HSTabs.init('[role="tablist"]');
