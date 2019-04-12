@@ -13,7 +13,11 @@ urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/images/favicon.ico')),
     url(r'^captcha', include('rest_captcha.urls')),
     # following is for user registration
-    url(r'^signup/$', views.signup, name='signup'),
+    url(r'^signup', views.signup, name='signup'),
+    url(r'^about', views.about, name='about'),
+    url(r'^post', views.post, name='post'),
+    # url(r'^login', views.login, name='login'),
+    url(r'^logout', views.logout, name='logout'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     url(r'^login/$', views.user_login, name='login'),

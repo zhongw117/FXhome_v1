@@ -33,14 +33,12 @@ urlpatterns = [
     path('login/', webViews.login, name='login'),
     path('logout/', webViews.logout, 'logout'),
 
+    path('accounts/', include('allauth.urls')),
 
     re_path(r'^useradmin/', include(wagtailadmin_urls)),
     re_path(r'^documents/', include(wagtaildocs_urls)),
     re_path(r'', include(wagtail_urls)),  # base location from where the pages of your Wagtail site will be served
-    # path('client/signup/createAccount/', clientView.createAccount, name='client-createAccount'),
-    # path('client/login/', clientView.loginPage, name='client-login'),
-    # path('client/signup/', clientView.signupPage, name='client-signup'),
-    # path('client/login/verify/', clientView.loginVerify, name='client-loginVerify'),
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
