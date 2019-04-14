@@ -49,19 +49,20 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.baidu',
-    'allauth.socialaccount.providers.dropbox',
+    # 'allauth.socialaccount.providers.baidu',
+    # 'allauth.socialaccount.providers.dropbox',
     # 'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.instagram',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.weibo',
+    # 'allauth.socialaccount.providers.weibo',
     'allauth.socialaccount.providers.weixin',
 
 ]
 
 SITE_ID = 1
+
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -117,7 +118,10 @@ AUTHENTICATION_BACKENDS = (
 
 ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/'
 LOGIN_REDIRECT_URL = '/accounts/email/'
-
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS=7
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
 WSGI_APPLICATION = 'helloapp.wsgi.application'
 
 EMAIL_USE_TLS = True

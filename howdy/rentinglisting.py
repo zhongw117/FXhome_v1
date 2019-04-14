@@ -43,7 +43,7 @@ def rentingrooms(request):
 
 def newhomes(request):
 
-    cursor.execute("SELECT id, url, ask_title FROM fangxiong_real WHERE ask_title NOT LIKE '[]' ")
+    cursor.execute("SELECT id, url, ask_title FROM mitbbs_car WHERE ask_title NOT LIKE '[]' ")
 
     col_names = ['id', 'url', 'ask_title']
     result = []
