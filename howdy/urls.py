@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^signup', views.signup, name='signup'),
     url(r'^about', views.about, name='about'),
     url(r'^post', views.post, name='post'),
-    # url(r'^login', views.login, name='login'),
     url(r'^logout', views.logout, name='logout'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
@@ -30,7 +29,8 @@ urlpatterns = [
     url(r'^test', views.test, name='test'),
     url(r'^about', views.about, name='about'),
     url(r'^articlelist', rl.get_article, name='get_article'),
-    url(r'^search_results', views.search, name='search')
+    url(r'^search_results', views.search, name='search'),
+    # url(r'^property-manage', views.search, name='search')，
     ]
 
 if settings.DEBUG:
