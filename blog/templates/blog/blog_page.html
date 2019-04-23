@@ -5,17 +5,13 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<main class="container-fluid px-0">
-
+<main class="container-fluid">
 <section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
-      <div class="container-fluid g-py-30">
+      <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-sm-10 col-md-9 col-lg-6">
             <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
@@ -28,7 +24,7 @@
 
                 {% for item in page.gallery_images.all %}
                     <div style="float: left; margin: 10px">
-                        {% image item.image fill-320x240 %}
+                        {% image item.image fill-100x100 %}
                         <p>{{ item.caption }}</p>
                     </div>
                 {% endfor %}

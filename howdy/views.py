@@ -22,6 +22,7 @@ from wagtail.core.models import Page
 from wagtail.search.models import Query
 from .forms import *
 
+
 def homepage(request):
 
     template = get_template('index.html')
@@ -164,3 +165,4 @@ def search(request):
         'search_query': search_query,
         'search_results': search_results,
     })
+

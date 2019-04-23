@@ -1,44 +1,45 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 {% load wagtailcore_tags %}
-
 {% block body_class %}template-blogindexpage{% endblock %}
-
 {% load static %}
-
 {% block content %}
-<main class="container-fluid px-0">
-    <!-- Login -->
-<section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
-      <div class="container-fluid g-py-30">
-        <div class="row justify-content-center">
-          <div class="col-sm-10 col-md-9 col-lg-6">
-            <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
-            
-                <h1>{{ page.title }}</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-                <div class="intro">{{ page.intro|richtext }}</div>
-
-                {% for post in blogpages %}
-                    {% with post=post.specific %}
-                        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-
-                        {% with post.main_image as main_image %}
-                            {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-                        {% endwith %}
-
-                        <p>{{ post.intro }}</p>
-                        {{ post.body|richtext }}
-                    {% endwith %}
-                {% endfor %}
-
-            </div>
-          </div>
-        </div>
-      </div>
-</section>
-
-<!-- End Login -->
- </main>
-
+<main class="container-fluid">
+  <section class="g-min-height-80vh g-flex-centered g-bg-lightblue-radialgradient-circle">
+        <!-- <div class="container-fluid g-py-30"> -->
+          <!-- <div class="row justify-content-center g-py-20"> -->
+            <!-- <div class="col-sm-10 col-md-9 col-lg-10"> -->
+              <!-- <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10"> -->
+              <!-- <h1>{{ page.title }}</h1> -->
+                <div class="container-fluid g-py-10">
+                  <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-9 col-lg-6"> 
+                      <div class="u-shadow-v24 g-bg-white rounded g-py-10 g-px-10">
+                        <div class="intro">{{ page.intro|richtext }}</div>
+                            {% for post in blogpages %}
+                                {% with post=post.specific %}
+                                  <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                                    {% with post.main_image as main_image %}
+                                        {% if main_image %}
+                                        {% image main_image fill-200x200 %}
+                                        {% endif %}
+                                    {% endwith %}
+                                <p>{{ post.intro }}</p>
+                                {% endwith %}
+                            {% endfor %}
+                          </div>
+                      </div>
+                   </div>
+                </div>
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+  </<section>
+</main>
 {% endblock content %}
